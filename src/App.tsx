@@ -4,6 +4,7 @@ import { Button } from "./components/Button";
 import { TotalTimeTimer } from "./components/TotalTimeTimer";
 import { LapTimeTimer } from "./components/LapTimeTimer";
 import { Summary } from "./components/Summary";
+import { LapTable } from "./components/LapTable";
 
 function App() {
   const [totalTime, setTotalTime] = useState<number>(0);
@@ -13,7 +14,6 @@ function App() {
 
   const intervalRef = useRef<number | null>(null);
 
-  //ok
   const handleStart = () => {
     if (intervalRef.current) return;
     intervalRef.current = setInterval(() => {
@@ -26,16 +26,16 @@ function App() {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
-      // setLaps((prev) => [...prev, lapTime]);
+      setLaps((prev) => [...prev, lapTime]);
       setViewResult(true);
     }
   };
-  //ok
+
   const handleLapTime = () => {
     setLaps((prev) => [...prev, lapTime]);
     setLapTime(0);
   };
-  //ok
+
   const handleReset = () => {
     setTotalTime(0);
     setLapTime(0);
@@ -50,7 +50,7 @@ function App() {
         <>
           <TotalTimeTimer time={totalTime} />
           <LapTimeTimer time={lapTime} />
-          {/* tabla */}
+          <LapTable laps={laps} />
         </>
       )}
       <div>

@@ -17,6 +17,7 @@ export const Summary = ({ laps, time }: SummaryProps) => {
       <h2>Avg Lap Time: {formattedAvgLapTime}</h2>
       <h2>Fastest Lap: {formattedFastestLap}</h2>
       <h2>Slowest Lap: {formattedSlowestLap}</h2>
+      <h2>Total Laps: {laps.length}</h2>
     </>
   );
 };
