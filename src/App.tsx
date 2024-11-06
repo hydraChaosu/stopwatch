@@ -3,6 +3,7 @@ import "./App.css";
 import { Button } from "./components/Button";
 import { TotalTimeTimer } from "./components/TotalTimeTimer";
 import { LapTimeTimer } from "./components/LapTimeTimer";
+import { Summary } from "./components/Summary";
 
 function App() {
   const [totalTime, setTotalTime] = useState<number>(0);
@@ -43,8 +44,15 @@ function App() {
 
   return (
     <>
-      <TotalTimeTimer time={totalTime} />
-      <LapTimeTimer time={lapTime} />
+      {viewResult ? (
+        <Summary laps={laps} time={totalTime} />
+      ) : (
+        <>
+          <TotalTimeTimer time={totalTime} />
+          <LapTimeTimer time={lapTime} />
+          {/* tabla */}
+        </>
+      )}
       <div>
         <Button type="start" onClick={handleStart} text="Start" />
         <Button type="stop" onClick={handleStop} text="Stop" />
