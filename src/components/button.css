@@ -1,0 +1,19 @@
+.start {
+  background-color: aqua;
+  color: black;
+}
+
+.stop {
+  background-color: red;
+  color: white;
+}
+
+.reset {
+  background-color: yellow;
+  color: black;
+}
+
+.lap {
+  background-color: green;
+  color: white;
+}

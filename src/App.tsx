@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
 import "./App.css";
-import { Timer } from "./components/Timer";
+import { Button } from "./components/Button";
+import { TotalTimeTimer } from "./components/TotalTimeTimer";
+import { LapTimeTimer } from "./components/LapTimeTimer";
 
 function App() {
   const [totalTime, setTotalTime] = useState<number>(0);
@@ -23,7 +25,7 @@ function App() {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
-      setLaps((prev) => [...prev, lapTime]);
+      // setLaps((prev) => [...prev, lapTime]);
       setViewResult(true);
     }
   };
@@ -41,13 +43,13 @@ function App() {
 
   return (
     <>
-      <Timer time={totalTime}>Total Time</Timer>
-      <Timer time={lapTime}>Lap Time</Timer>
+      <TotalTimeTimer time={totalTime} />
+      <LapTimeTimer time={lapTime} />
       <div>
-        <button onClick={handleStart}>Start</button>
-        <button onClick={handleStop}>Stop</button>
-        <button onClick={handleReset}>Reset</button>
-        <button onClick={handleLapTime}>Lap</button>
+        <Button type="start" onClick={handleStart} text="Start" />
+        <Button type="stop" onClick={handleStop} text="Stop" />
+        <Button type="reset" onClick={handleReset} text="Reset" />
+        <Button type="lap" onClick={handleLapTime} text="Lap" />
       </div>
     </>
   );

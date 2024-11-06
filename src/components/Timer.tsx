@@ -2,13 +2,13 @@ import { ShowFormattedTime } from "./ShowFormattedTime";
 
 type TimerProps = {
   time: number;
-  children: React.ReactNode;
+  text: string;
 };
 
-export const Timer = ({ time, children }: TimerProps) => {
+export const Timer = ({ time, text }: TimerProps) => {
   return (
     <div>
-      <h1>{children}</h1>
+      <h1>{text}</h1>
       <ShowFormattedTime time={time} />
     </div>
   );

@@ -1,12 +1,14 @@
 type Props = {
-  className: string;
+  type: string;
   onClick: () => void;
   text: string;
 };
 
-export const Button = ({ className, onClick, text }: Props) => {
+import "./button.css";
+
+export const Button = ({ type, onClick, text }: Props) => {
   return (
-    <button className={className} onClick={onClick}>
+    <button className={type} onClick={onClick}>
       {text}
     </button>
   );
