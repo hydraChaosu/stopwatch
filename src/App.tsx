@@ -15,6 +15,13 @@ function App() {
   const intervalRef = useRef<number | null>(null);
 
   const handleStart = () => {
+    if (viewResult) {
+      setViewResult(false);
+      console.log(laps);
+      const tlaps = laps.slice(0, laps.length - 1);
+      console.log(tlaps);
+      setLaps(tlaps);
+    }
     if (intervalRef.current) return;
     intervalRef.current = setInterval(() => {
       setTotalTime((prev) => prev + 10);
@@ -32,6 +39,7 @@ function App() {
   };
 
   const handleLapTime = () => {
+    if (viewResult) return;
     setLaps((prev) => [...prev, lapTime]);
     setLapTime(0);
   };
